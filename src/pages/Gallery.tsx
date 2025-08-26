@@ -43,7 +43,7 @@ const Gallery = () => {
       title: "Traditional Mandap Ceremony",
       category: "ceremonies",
       subcategory: "mandap",
-      src: "/placeholder.svg",
+      src: "/img/Traditional Mandap Ceremony.jpg",
       alt: "Beautiful traditional mandap with flowers",
       likes: 245,
       photographer: "Royal Wedding Photos",
@@ -56,7 +56,7 @@ const Gallery = () => {
       title: "Mehendi Night Celebration",
       category: "mehendi",
       subcategory: "celebration",
-      src: "/placeholder.svg", 
+      src: "/img/Mehendi Night Celebration.jpg",
       alt: "Bride getting mehendi applied",
       likes: 189,
       photographer: "Candid Moments",
@@ -69,7 +69,7 @@ const Gallery = () => {
       title: "Royal Palace Venue",
       category: "venues",
       subcategory: "palace",
-      src: "/placeholder.svg",
+      src: "/img/Royal Palace Venue.jpg",
       alt: "Stunning palace venue setup",
       likes: 312,
       photographer: "Venue Masters",
@@ -82,7 +82,7 @@ const Gallery = () => {
       title: "Couple Portrait Session",
       category: "couples",
       subcategory: "portrait",
-      src: "/placeholder.svg",
+      src: "/img/Couple Portrait Session.jpg",
       alt: "Beautiful couple in traditional attire",
       likes: 156,
       photographer: "Love Stories",
@@ -95,7 +95,7 @@ const Gallery = () => {
       title: "Floral Mandap Decoration",
       category: "decorations",
       subcategory: "floral",
-      src: "/placeholder.svg",
+      src: "/img/Floral Mandap Decoration.jpg",
       alt: "Elaborate floral mandap setup",
       likes: 278,
       photographer: "Decor Dreams",
@@ -108,7 +108,7 @@ const Gallery = () => {
       title: "Wedding Feast Setup",
       category: "food",
       subcategory: "buffet",
-      src: "/placeholder.svg",
+      src: "/img/Wedding Feast Setup.jpg",
       alt: "Elaborate wedding food arrangement",
       likes: 134,
       photographer: "Food & Events",
@@ -121,7 +121,7 @@ const Gallery = () => {
       title: "Haldi Ceremony Joy",
       category: "ceremonies",
       subcategory: "haldi",
-      src: "/placeholder.svg",
+      src: "/img/Haldi Ceremony Joy.jpg",
       alt: "Joyful haldi ceremony moments",
       likes: 203,
       photographer: "Golden Moments",
@@ -131,23 +131,10 @@ const Gallery = () => {
     },
     {
       id: 8,
-      title: "Bridal Mehendi Design",
-      category: "mehendi",
-      subcategory: "design",
-      src: "/placeholder.svg",
-      alt: "Intricate bridal mehendi patterns",
-      likes: 167,
-      photographer: "Henna Artists",
-      venue: "Bridal Suite",
-      city: "Chennai",
-      tags: ["mehendi", "design", "bridal", "henna"]
-    },
-    {
-      id: 9,
       title: "Reception Hall Decor",
       category: "decorations",
       subcategory: "reception",
-      src: "/placeholder.svg",
+      src: "/img/Reception Hall Decor.jpg",
       alt: "Elegant reception hall decoration",
       likes: 289,
       photographer: "Elite Decorators",
@@ -158,10 +145,12 @@ const Gallery = () => {
   ];
 
   const filteredImages = galleryImages.filter(image => {
-    const matchesSearch = image.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         image.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
-    const matchesCategory = selectedCategory === "all" || image.category === selectedCategory;
-    
+    const matchesSearch =
+      image.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      image.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()));
+    const matchesCategory =
+      selectedCategory === "all" || image.category === selectedCategory;
+
     return matchesSearch && matchesCategory;
   });
 
@@ -176,7 +165,7 @@ const Gallery = () => {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="container mx-auto px-4 py-8">
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -199,7 +188,7 @@ const Gallery = () => {
               className="pl-10"
             />
           </div>
-          
+
           <Select value={selectedCategory} onValueChange={setSelectedCategory}>
             <SelectTrigger className="w-full sm:w-48">
               <Filter className="w-4 h-4 mr-2" />
@@ -218,7 +207,7 @@ const Gallery = () => {
         {/* Results Count */}
         <div className="text-center mb-6">
           <p className="text-muted-foreground">
-            Showing {filteredImages.length} photo{filteredImages.length !== 1 ? 's' : ''}
+            Showing {filteredImages.length} photo{filteredImages.length !== 1 ? "s" : ""}
           </p>
         </div>
 
@@ -226,13 +215,16 @@ const Gallery = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredImages.map((image) => (
             <Card key={image.id} className="group overflow-hidden hover:shadow-lg transition-all duration-300">
-              <div className="relative aspect-square overflow-hidden cursor-pointer" onClick={() => openLightbox(image)}>
+              <div
+                className="relative aspect-square overflow-hidden cursor-pointer"
+                onClick={() => openLightbox(image)}
+              >
                 <img
                   src={image.src}
                   alt={image.alt}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                 />
-                
+
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <div className="flex gap-2">
@@ -255,7 +247,7 @@ const Gallery = () => {
                   </Badge>
                 </div>
               </div>
-              
+
               <CardContent className="p-4">
                 <h3 className="font-semibold mb-1 line-clamp-1">{image.title}</h3>
                 <p className="text-sm text-muted-foreground mb-2">
@@ -264,7 +256,7 @@ const Gallery = () => {
                 <p className="text-xs text-muted-foreground mb-3">
                   {image.venue}, {image.city}
                 </p>
-                
+
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-1 text-sm text-muted-foreground">
                     <Heart className="w-4 h-4" />
@@ -287,9 +279,7 @@ const Gallery = () => {
           <div className="text-center py-12">
             <Search className="w-16 h-16 mx-auto text-muted-foreground mb-4" />
             <h3 className="text-lg font-medium mb-2">No photos found</h3>
-            <p className="text-muted-foreground">
-              Try adjusting your search terms or filters
-            </p>
+            <p className="text-muted-foreground">Try adjusting your search terms or filters</p>
           </div>
         )}
 
@@ -306,13 +296,13 @@ const Gallery = () => {
                 >
                   <X className="w-4 h-4" />
                 </Button>
-                
+
                 <img
                   src={selectedImage.src}
                   alt={selectedImage.alt}
                   className="w-full h-auto max-h-[70vh] object-contain"
                 />
-                
+
                 <div className="p-6">
                   <div className="flex justify-between items-start mb-4">
                     <div>
@@ -326,7 +316,7 @@ const Gallery = () => {
                       {selectedImage.likes}
                     </div>
                   </div>
-                  
+
                   <div className="flex flex-wrap gap-2 mb-4">
                     {selectedImage.tags.map((tag, index) => (
                       <Badge key={index} variant="outline">
@@ -334,7 +324,7 @@ const Gallery = () => {
                       </Badge>
                     ))}
                   </div>
-                  
+
                   <div className="flex gap-2">
                     <Button className="flex-1">
                       <Heart className="w-4 h-4 mr-2" />

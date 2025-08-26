@@ -33,7 +33,7 @@ const Contact = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="font-semibold">+91 98765 43210</p>
+                  <p className="font-semibold">+91 639881XXXX</p>
                   <p className="text-sm text-muted-foreground mt-1">
                     Monday - Saturday: 9 AM - 8 PM
                   </p>
@@ -65,8 +65,8 @@ const Contact = () => {
                 <CardContent>
                   <p className="font-semibold">Muhoort Wedding Planners</p>
                   <p className="text-sm text-muted-foreground">
-                    123 Wedding Street<br />
-                    Mumbai, Maharashtra 400001<br />
+                    G Block, Beta 2<br />
+                    Greater Noida, Uttar Pradesh 201310<br />
                     India
                   </p>
                 </CardContent>
@@ -118,7 +118,7 @@ const Contact = () => {
                       </div>
                       <div>
                         <Label htmlFor="phone">Phone</Label>
-                        <Input id="phone" type="tel" placeholder="+91 98765 43210" />
+                        <Input id="phone" type="tel" placeholder="+91 639881XXXX" />
                       </div>
                     </div>
 
