@@ -1,73 +1,76 @@
-# Welcome to your Lovable project
+# 🌟 Shubh-Muhoort
 
-## Project info
+A modern web application to find and manage **auspicious timings (Shubh Muhurat)**.  
+Built with the latest web technologies for speed, responsiveness, and great user experience.  
 
-**URL**: https://lovable.dev/projects/c5a8f06c-a596-4715-9f90-34d1e5bd4a19
+🔗 **Live Project**: [View on Lovable](https://lovable.dev/projects/c5a8f06c-a596-4715-9f90-34d1e5bd4a19)  
+🔗 **GitHub Repo**: [Shubh-Muhoort](https://github.com/prashantyadav12/Shubh-Muhoort)  
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 📸 Project Screenshots
 
-**Use Lovable**
+### 🏠 Home Page
+![Home Page Screenshot](public/img/screenshot1.png)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/c5a8f06c-a596-4715-9f90-34d1e5bd4a19) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## ✨ Features
 
-**Use your preferred IDE**
+- 📅 Provides auspicious timings (Shubh Muhurat)  
+- ❤️ Animated heart blink on homepage for better user engagement  
+- 🎨 Clean & modern UI with **Tailwind CSS**  
+- ⚡ Fast & lightweight with **Vite** + **React**  
+- 📱 Fully responsive (works on mobile & desktop)  
+- 🔐 Scalable structure with future scope for database integration (e.g., vendor details, user data)  
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## 🛠️ Tech Stack
 
-Follow these steps:
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![shadcn/ui](https://img.shields.io/badge/shadcn--ui-000000?style=for-the-badge)
+
+---
+
+## ⚙️ Getting Started (Run Locally)
+
+Make sure you have **Node.js** & **npm** installed.  
+👉 [Install Node.js using nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+# Step 1: Clone the repository
+git clone https://github.com/prashantyadav12/Shubh-Muhoort.git
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Step 2: Navigate into the project folder
+cd Shubh-Muhoort
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Step 3: Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Step 4: Start the development server
 npm run dev
-```
 
-**Edit a file directly in GitHub**
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
 
-**Use GitHub Codespaces**
+---
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+👉 Now, here’s how you **update your repo with this README**:  
 
-## What technologies are used for this project?
+```sh
+# open terminal in project folder
 
-This project is built with:
+# pull latest changes (optional but good practice)
+git pull origin main
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+# open README.md in your code editor and replace content with updated one
 
-## How can I deploy this project?
+# add & commit changes
+git add README.md
+git commit -m "Enhanced README with screenshots, features, and project details"
 
-Simply open [Lovable](https://lovable.dev/projects/c5a8f06c-a596-4715-9f90-34d1e5bd4a19) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+# push changes
+git push origin main
