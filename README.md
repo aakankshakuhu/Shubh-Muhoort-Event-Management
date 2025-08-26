@@ -11,7 +11,9 @@ Built with the latest web technologies for speed, responsiveness, and great user
 ## 📸 Project Screenshots
 
 ### 🏠 Home Page
-![Home Page Screenshot](public/img/screenshot1.png)
+![Home Page Screenshot](https://raw.githubusercontent.com/prashantyadav12/Shubh-Muhoort/main/public/img/screenshot1.png)
+
+
 
 ---
 
