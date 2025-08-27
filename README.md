@@ -3,7 +3,7 @@
 A modern web application to find and manage **auspicious timings (Shubh Muhurat)**.  
 Built with the latest web technologies for speed, responsiveness, and great user experience.  
 
-🔗 **Live Project**: [View on Lovable](https://lovable.dev/projects/c5a8f06c-a596-4715-9f90-34d1e5bd4a19)  
+🔗 **Live Project**: [https://shubh-muhoort-planner-93.lovable.app] 
 🔗 **GitHub Repo**: [Shubh-Muhoort](https://github.com/prashantyadav12/Shubh-Muhoort)  
 
 ---
