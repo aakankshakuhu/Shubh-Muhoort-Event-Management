@@ -3,14 +3,13 @@
 A modern web application to find and manage **auspicious timings (Shubh Muhurat)**.  
 Built with the latest web technologies for speed, responsiveness, and great user experience.  
 
-🔗 **Live Project**: [https://shubh-muhoort-planner-93.lovable.app]  
 
 ---
 
 ## 📸 Project Screenshots
 
 ### 🏠 Home Page
-![Home Page Screenshot](https://raw.githubusercontent.com/prashantyadav12/Shubh-Muhoort/main/public/img/screenshot1.png)
+
 
 
 
@@ -42,36 +41,3 @@ Built with the latest web technologies for speed, responsiveness, and great user
 Make sure you have **Node.js** & **npm** installed.  
 👉 [Install Node.js using nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-```sh
-# Step 1: Clone the repository
-git clone https://github.com/prashantyadav12/Shubh-Muhoort.git
-
-# Step 2: Navigate into the project folder
-cd Shubh-Muhoort
-
-# Step 3: Install dependencies
-npm install
-
-# Step 4: Start the development server
-npm run dev
-
-
-
----
-
-👉 Now, here’s how you **update your repo with this README**:  
-
-```sh
-# open terminal in project folder
-
-# pull latest changes (optional but good practice)
-git pull origin main
-
-# open README.md in your code editor and replace content with updated one
-
-# add & commit changes
-git add README.md
-git commit -m "Enhanced README with screenshots, features, and project details"
-
-# push changes
-git push origin main
