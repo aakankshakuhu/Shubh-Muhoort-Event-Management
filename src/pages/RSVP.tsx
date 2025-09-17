@@ -4,7 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import Header from "@/components/Header";
 
@@ -17,39 +23,53 @@ const RSVP = () => {
     attendance: "",
     guests: "1",
     dietaryRequirements: "",
-    message: ""
+    message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Save to localStorage
-    const existingRSVPs = JSON.parse(localStorage.getItem("rsvps") || "[]");
-    const newRSVP = { ...formData, id: Date.now(), submittedAt: new Date().toISOString() };
-    existingRSVPs.push(newRSVP);
-    localStorage.setItem("rsvps", JSON.stringify(existingRSVPs));
-    
-    toast({
-      title: "RSVP Submitted Successfully!",
-      description: "Thank you for your response. We look forward to celebrating with you!"
-    });
-    
-    // Reset form
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      attendance: "",
-      guests: "1",
-      dietaryRequirements: "",
-      message: ""
-    });
+
+    try {
+      const response = await fetch("http://localhost:5001/api/rsvp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit RSVP");
+      }
+
+      // Show toast on success
+      toast({
+        title: "RSVP Submitted Successfully!",
+        description:
+          "Thank you for your response. We look forward to celebrating with you!",
+      });
+
+      // Reset form
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        attendance: "",
+        guests: "1",
+        dietaryRequirements: "",
+        message: "",
+      });
+    } catch (error: any) {
+      toast({
+        title: "Submission Failed",
+        description: error.message,
+        variant: "destructive",
+      });
+    }
   };
 
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      
+
       <main className="container mx-auto px-4 py-8">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-8">
@@ -73,18 +93,22 @@ const RSVP = () => {
                     <Input
                       id="name"
                       value={formData.name}
-                      onChange={(e) => setFormData({...formData, name: e.target.value})}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
                       required
                     />
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="email">Email Address *</Label>
                     <Input
                       id="email"
                       type="email"
                       value={formData.email}
-                      onChange={(e) => setFormData({...formData, email: e.target.value})}
+                      onChange={(e) =>
+                        setFormData({ ...formData, email: e.target.value })
+                      }
                       required
                     />
                   </div>
@@ -97,19 +121,28 @@ const RSVP = () => {
                       id="phone"
                       type="tel"
                       value={formData.phone}
-                      onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                      onChange={(e) =>
+                        setFormData({ ...formData, phone: e.target.value })
+                      }
                     />
                   </div>
-                  
+
                   <div>
                     <Label htmlFor="guests">Number of Guests *</Label>
-                    <Select value={formData.guests} onValueChange={(value) => setFormData({...formData, guests: value})}>
+                    <Select
+                      value={formData.guests}
+                      onValueChange={(value) =>
+                        setFormData({ ...formData, guests: value })
+                      }
+                    >
                       <SelectTrigger>
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
-                        {[1,2,3,4,5].map(num => (
-                          <SelectItem key={num} value={num.toString()}>{num}</SelectItem>
+                        {[1, 2, 3, 4, 5].map((num) => (
+                          <SelectItem key={num} value={num.toString()}>
+                            {num}
+                          </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
@@ -118,7 +151,12 @@ const RSVP = () => {
 
                 <div>
                   <Label htmlFor="attendance">Will you be attending? *</Label>
-                  <Select value={formData.attendance} onValueChange={(value) => setFormData({...formData, attendance: value})}>
+                  <Select
+                    value={formData.attendance}
+                    onValueChange={(value) =>
+                      setFormData({ ...formData, attendance: value })
+                    }
+                  >
                     <SelectTrigger>
                       <SelectValue placeholder="Please select" />
                     </SelectTrigger>
@@ -134,7 +172,12 @@ const RSVP = () => {
                   <Input
                     id="dietary"
                     value={formData.dietaryRequirements}
-                    onChange={(e) => setFormData({...formData, dietaryRequirements: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        dietaryRequirements: e.target.value,
+                      })
+                    }
                     placeholder="Veg, Jain, allergies, etc."
                   />
                 </div>
@@ -144,7 +187,9 @@ const RSVP = () => {
                   <Textarea
                     id="message"
                     value={formData.message}
-                    onChange={(e) => setFormData({...formData, message: e.target.value})}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     placeholder="Any special wishes or notes..."
                     rows={4}
                   />
