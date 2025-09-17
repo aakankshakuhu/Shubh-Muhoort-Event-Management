@@ -33,7 +33,7 @@ const Contact = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="font-semibold">+91 639881XXXX</p>
+                  <p className="font-semibold">+91 982181XXXX</p>
                   <p className="text-sm text-muted-foreground mt-1">
                     Monday - Saturday: 9 AM - 8 PM
                   </p>
