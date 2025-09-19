@@ -7,18 +7,20 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  const navigation = [
-    { name: "Home", href: "/" },
-    { name: "Auspicious Dates", href: "/dates" },
-    { name: "Itinerary", href: "/itinerary" },
-    { name: "Vendors", href: "/vendors" },
-    { name: "Menu Planner", href: "/menu" },
-    { name: "Themes", href: "/themes" },
-    { name: "Gallery", href: "/gallery" },
-    { name: "RSVP", href: "/rsvp" },
-    { name: "About", href: "/about" },
-    { name: "Contact", href: "/contact" },
-  ];
+const navigation = [
+  { name: "Login", href: "/login" },   // 👈 Added here
+  { name: "Home", href: "/" },
+  { name: "Auspicious Dates", href: "/dates" },
+  { name: "Itinerary", href: "/itinerary" },
+  { name: "Vendors", href: "/vendors" },
+  { name: "Menu Planner", href: "/menu" },
+  { name: "Themes", href: "/themes" },
+  { name: "Gallery", href: "/gallery" },
+  { name: "RSVP", href: "/rsvp" },
+  { name: "About", href: "/about" },
+  { name: "Contact", href: "/contact" },
+];
+
 
   const isActive = (path: string) => location.pathname === path;
 

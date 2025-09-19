@@ -18,12 +18,29 @@ app.use(cors({
 
 // ✅ Routes
 const rsvpRoutes = require("./routes/rsvp");
+const authRoutes = require("./routes/auth"); 
 app.use("/api/rsvp", rsvpRoutes);
+app.use("/api/auth", authRoutes); 
 
 // ✅ MongoDB Connection
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB connected"))
-  .catch((err) => console.error("MongoDB connection error:", err));
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(async () => {
+    console.log("✅ MongoDB Connected");
+
+    try {
+      // Drop the old email index if it exists
+      await mongoose.connection.db.collection("users").dropIndex("email_1");
+      console.log("🗑️ Dropped email_1 index");
+    } catch (err) {
+      if (err.codeName === "IndexNotFound") {
+        console.log("ℹ️ email_1 index not found, skipping...");
+      } else {
+        console.error("⚠️ Error dropping index:", err);
+      }
+    }
+  })
+  .catch(err => console.error("❌ MongoDB connection error:", err));
+
 
 // ✅ POST route to save Events
 app.post("/addevent", async (req, res) => {
